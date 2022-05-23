@@ -1,0 +1,84 @@
+{
+    "Information": [
+        {
+            "question": "CLXXXIX",
+            "optionA": "186",
+            "optionB": "187",
+            "optionC": "188",
+            "optionD": "189",
+            "correctAnswer": "189"
+        },
+        {
+            "question": "800000 + 700 + 6",
+            "optionA": "800706",
+            "optionB": "800707",
+            "optionC": "800708",
+            "optionD": "800709",
+            "correctAnswer": "800706"
+        },
+        {
+            "question": "200 + 200 + 600",
+            "optionA": "1000",
+            "optionB": "1100",
+            "optionC": "1010",
+            "optionD": "2000",
+            "correctAnswer": "1000"
+        },
+        {
+            "question": "100 * 100",
+            "optionA": "1000",
+            "optionB": "100",
+            "optionC": "10000",
+            "optionD": "1000000",
+            "correctAnswer": "10000"
+        },
+        {
+            "question": "900 / 10",
+            "optionA": "90",
+            "optionB": "91",
+            "optionC": "80",
+            "optionD": "s70",
+            "correctAnswer": "90"
+        },
+        {
+            "question": "7845 * 100",
+            "optionA": "784500",
+            "optionB": "7845001",
+            "optionC": "785400",
+            "optionD": "758400",
+            "correctAnswer": "784500"
+        },
+        {
+            "question": "8700 * 10000",
+            "optionA": "87000000",
+            "optionB": "8700000",
+            "optionC": "870000",
+            "optionD": "870000",
+            "correctAnswer": "87000000"
+        },
+        {
+            "question": "7000* 100",
+            "optionA": "700000",
+            "optionB": "70000",
+            "optionC": "7000000",
+            "optionD": "700",
+            "correctAnswer": "700000"
+        },
+        {
+            "question": "A water tank is 2 meters long, i meter broad and 3 meters high. the capacity of the tank in litre if 1000 cu.cm= 1litre",
+            "optionA": "600 litres",
+            "optionB": "60 litres",
+            "optionC": "6000 litres",
+            "optionD": "60000 litres",
+            "correctAnswer": "6000 litres"
+        },
+        {
+            "question": "64875359 + 15346756",
+            "optionA": "80222115",
+            "optionB": "80222216",
+            "optionC": "80222117",
+            "optionD": "80222118",
+            "correctAnswer": "80222115"
+        }
+    ]
+}
