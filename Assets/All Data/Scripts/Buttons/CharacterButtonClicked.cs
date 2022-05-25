@@ -5,9 +5,9 @@ using UnityEngine.UI;
 
 public class CharacterButtonClicked : MonoBehaviour
 {
-    public Button button;
-    public GameObject tickImage;
-    public Image characterImage;
+    public Button button; //Character selectionn button
+    public GameObject tickImage; //If Selected tick image
+    public Image characterImage; //Character image
     public bool isMine = false;
 
     public delegate void ButtonIsClicked(Sprite sprite);
@@ -28,12 +28,20 @@ public class CharacterButtonClicked : MonoBehaviour
         CharacterButtonClicked.buttonIsClicked -= IsThisMine;
     }
 
+    /// <summary>
+    /// This is to know weather selected character is Mine then other character will be deselected
+    /// </summary>
+    /// <param name="useless">not using</param>
     public void IsThisMine(Sprite useless)
     {
         if(isMine)
          tickImage.SetActive(true);
          else tickImage.SetActive(false);
     }
+
+    /// <summary>
+    /// This is to whern button is clicked IsMine ia active and tick image of selected character will be activated
+    /// </summary>
     public void ButtonClicked()
     {
         isMine = true;

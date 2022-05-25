@@ -13,12 +13,15 @@ public class ConvertToJson : MonoBehaviour
 
     public void Start()
     {
-        dataPath = Application.dataPath + "/StreamingAssets/Questions.json";
+        dataPath = Application.dataPath + "/StreamingAssets/Questions.json"; //Json file path
         ConvertJson();
     }
+
+    /// <summary>
+    /// This is to Convert Json to DataContainer array
+    /// </summary>
     public void ConvertJson()
     {
-      
         datas = new UserInfo[data.Length];
         for(int i = 0; i< data.Length; i++)
         {

@@ -28,6 +28,9 @@ public class AllQuestion : ScriptableObject
        }
    }
 
+    /// <summary>
+    /// This is to GetAllQuestion from the Json file created.
+    /// </summary>
    public void GetAllQuestion()
    {
        dataPath = Application.dataPath + "/StreamingAssets/Questions.json";
@@ -35,6 +38,11 @@ public class AllQuestion : ScriptableObject
    }
 
 
+    /// <summary>
+    /// This is to Set User Information
+    /// </summary>
+    /// <param name="dropDown">Level type</param>
+    /// <param name="nameField">user name</param>
    public void SetUserData(TMP_Dropdown dropDown, TMP_InputField nameField)
    {
        userDetails.userName = nameField.text;

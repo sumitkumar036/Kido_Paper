@@ -6,24 +6,29 @@ using TMPro;
 
 public class CheckAnswer : MonoBehaviour
 {
-    public Button[] allButtons;
-    public string correctAnswer;
+    public Button[] allButtons; //Total available button or option
+    public string correctAnswer;//Correct answer
 
     public delegate void AnswerChecked();
     public static AnswerChecked answerChecked;
 
     void OnEnable()
     {
-        AnswerSelected.onButtonClick += Check;
-        GenerateNumber.uniqueNumber += ResetColor;
+        AnswerSelected.onButtonClick += Check; //Subscribing delegate in order to check answer
+        GenerateNumber.uniqueNumber += ResetColor; //Subscribing delegate in order to reset color of button
     }
 
     void OnDisable()
     {
-        AnswerSelected.onButtonClick -= Check;
-        GenerateNumber.uniqueNumber -= ResetColor;
+        AnswerSelected.onButtonClick -= Check; //Unsubscribing delegate in order to check answer
+        GenerateNumber.uniqueNumber -= ResetColor; //Unsubscribing delegate in order to reset color of button
     }
 
+
+    /// <summary>
+    /// This is to check answer is correct or not
+    /// </summary>
+    /// <param name="optionSelected">Selected answer</param>
     public void Check(TextMeshProUGUI optionSelected)
     {
         WhenButtonClicked();
@@ -40,7 +45,10 @@ public class CheckAnswer : MonoBehaviour
         if(answerChecked != null) answerChecked();
     }
 
-    
+    /// <summary>
+    /// This is to show the correct answer if wrong is selected
+    /// </summary>
+    /// <param name="optionSelected">answer selected</param>    
     public void IfWrongThenShowRight(TextMeshProUGUI optionSelected)
     {
         for(int i = 0; i< allButtons.Length; i++)
@@ -53,6 +61,10 @@ public class CheckAnswer : MonoBehaviour
         optionSelected.color = Color.red;
     }
     
+
+    /// <summary>
+    /// This is called when option is selected
+    /// </summary>
     public void WhenButtonClicked()
     {
         for(int i = 0; i< allButtons.Length; i++)
@@ -62,6 +74,10 @@ public class CheckAnswer : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// This is to reset the color of the option if next question is selected
+    /// </summary>
+    /// <param name="useless"></param>
     public void ResetColor(int useless)
     {
         for(int i = 0; i< allButtons.Length; i++)
@@ -71,7 +87,11 @@ public class CheckAnswer : MonoBehaviour
         }
     }
 
-
+    /// <summary>
+    /// This is used to split the string based on our requirement
+    /// </summary>
+    /// <param name="option"></param>
+    /// <returns></returns>
     public string SplitString(string option)
     {
         string[] splitArray =  option.Split(char.Parse(" "));

@@ -17,6 +17,9 @@ public class GenerateNumber : MonoBehaviour
         GenerateRandomNumber();
     }
    
+    /// <summary>
+    /// This is to generate number to get question
+    /// </summary>
     public void GenerateRandomNumber()
     {
         number = Generate(0,11);
@@ -38,6 +41,12 @@ public class GenerateNumber : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// This is used to generate number at particular range
+    /// </summary>
+    /// <param name="min">Minimum number</param>
+    /// <param name="max">Maximum number</param>
+    /// <returns></returns>
     public int Generate(int min, int max)
     {
         if(uniqueNumber != null)

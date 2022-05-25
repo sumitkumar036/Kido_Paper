@@ -6,8 +6,8 @@ using TMPro;
 
 public class AnswerSelected : MonoBehaviour
 {
-    public Button button;
-    public TextMeshProUGUI optionSelected;
+    public Button button; //Current button
+    public TextMeshProUGUI optionSelected; //Option selected text
     
     public delegate void OnButtonClick(TextMeshProUGUI answer);
     public static OnButtonClick onButtonClick;
@@ -18,6 +18,9 @@ public class AnswerSelected : MonoBehaviour
         button.onClick.AddListener(()=> { ButtonIsClicked();});
     }
 
+    /// <summary>
+    /// This is called when user selet any option
+    /// </summary>
     public void ButtonIsClicked()
     {
         if(onButtonClick != null) onButtonClick(optionSelected);

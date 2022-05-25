@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class CreateInstance : MonoBehaviour
 {
-    public AllQuestion allQuestion;
+    public AllQuestion allQuestion; // All question data
     
     void Awake()
     {
-        allQuestion.CreateInstance();
+        allQuestion.CreateInstance(); // Creating instance of all question data ACCESS FROM OTHER CLASSES
     }
 }

@@ -20,14 +20,18 @@ public class GameManager : MonoBehaviour
 
     void OnEnable()
     {
-        GenerateNumber.uniqueNumber += DisplayTestData;
+        GenerateNumber.uniqueNumber += DisplayTestData; //Subscribing to the event of GenerateNumber class
     }
 
     void OnDisable()
     {
-        GenerateNumber.uniqueNumber -= DisplayTestData;
+        GenerateNumber.uniqueNumber -= DisplayTestData; //Unsubscribing to the event of GenerateNumber class
     }
 
+    /// <summary>
+    /// This is to Display Test Data form json to text field
+    /// </summary>
+    /// <param name="number">Generated Number</param>
     public void DisplayTestData(int number)
     {
         AllQuestion._instance.currectQuestionNumber = number;

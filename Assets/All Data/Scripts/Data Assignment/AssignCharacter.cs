@@ -9,13 +9,18 @@ public class AssignCharacter : MonoBehaviour
 
     void OnEnable()
     {
-        CharacterButtonClicked.buttonIsClicked += CharacterAssignment;
+        CharacterButtonClicked.buttonIsClicked += CharacterAssignment; //Subscribing to event when character is being selected
     }
 
     void OnDisable()
     {
-        CharacterButtonClicked.buttonIsClicked -= CharacterAssignment;
+        CharacterButtonClicked.buttonIsClicked -= CharacterAssignment;//Unsubscribing to event when character is being selected
     }
+
+    /// <summary>
+    /// This is to assing the selected character to icon
+    /// </summary>
+    /// <param name="sprite">Selected character sprite</param>
     public void CharacterAssignment(Sprite sprite)
     {
         characterImage.sprite = sprite;

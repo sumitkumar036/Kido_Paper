@@ -5,8 +5,8 @@ using TMPro;
 
 public class ShowUserData : MonoBehaviour
 {
-    public  TextMeshProUGUI nameField;
-    public TextMeshProUGUI levelType;
+    public  TextMeshProUGUI nameField; //user name field
+    public TextMeshProUGUI levelType; //user level type field
 
     void Awake()
     {
