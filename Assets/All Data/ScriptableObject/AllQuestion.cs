@@ -15,9 +15,29 @@ public class AllQuestion : ScriptableObject
    public DataContainer[] dataContainer;
    private string dataPath;
 
+   public static AllQuestion _instance = null;
+   public void CreateInstance()
+   {
+       if(_instance == null)
+       {
+           _instance = this;
+       }
+       else
+       {
+           Destroy(this);
+       }
+   }
+
    public void GetAllQuestion()
    {
        dataPath = Application.dataPath + "/StreamingAssets/Questions.json";
        dataContainer = JsonHelper.FromJson<DataContainer>(File.ReadAllText (dataPath));
+   }
+
+
+   public void SetUserData(TMP_Dropdown dropDown, TMP_InputField nameField)
+   {
+       userDetails.userName = nameField.text;
+       userDetails.levelType = (TestType)dropDown.value;
    }
 }

@@ -6,9 +6,8 @@ using TMPro;
 
 public class CheckAnswer : MonoBehaviour
 {
-
-    public AllQuestion allQuestion;
-    public Button[] allButtons; 
+    public Button[] allButtons;
+    public string correctAnswer;
 
     public delegate void AnswerChecked();
     public static AnswerChecked answerChecked;
@@ -28,28 +27,38 @@ public class CheckAnswer : MonoBehaviour
     public void Check(TextMeshProUGUI optionSelected)
     {
         WhenButtonClicked();
-        if(optionSelected.text.Contains(allQuestion.dataContainer[allQuestion.currectQuestionNumber].correctAnswer))
+        correctAnswer = AllQuestion._instance.dataContainer[AllQuestion._instance.currectQuestionNumber].correctAnswer;
+        if(SplitString(optionSelected.text).Equals(correctAnswer))
         {
             optionSelected.color = Color.green;
         }
         else
         {
-            optionSelected.color = Color.red;
+            IfWrongThenShowRight(optionSelected);
         }
 
         if(answerChecked != null) answerChecked();
-
-        Debug.Log(optionSelected.text);
-        Debug.Log(allQuestion.dataContainer[allQuestion.currectQuestionNumber].correctAnswer);
     }
 
+    
+    public void IfWrongThenShowRight(TextMeshProUGUI optionSelected)
+    {
+        for(int i = 0; i< allButtons.Length; i++)
+        {
+            if(SplitString(allButtons[i].GetComponentInChildren<TextMeshProUGUI>().text).Equals(correctAnswer))
+            {
+              allButtons[i].GetComponentInChildren<TextMeshProUGUI>().color = Color.green;
+            }
+        }
+        optionSelected.color = Color.red;
+    }
     
     public void WhenButtonClicked()
     {
         for(int i = 0; i< allButtons.Length; i++)
         {
             allButtons[i].interactable = false;
-            allButtons[i].GetComponentInChildren<TextMeshProUGUI>().color = Color.black;
+            allButtons[i].GetComponentInChildren<TextMeshProUGUI>().color = Color.white;
         }
     }
 
@@ -58,7 +67,15 @@ public class CheckAnswer : MonoBehaviour
         for(int i = 0; i< allButtons.Length; i++)
         {
             allButtons[i].interactable = true;
-            allButtons[i].GetComponentInChildren<TextMeshProUGUI>().color = Color.black;
+            allButtons[i].GetComponentInChildren<TextMeshProUGUI>().color = Color.white;
         }
     }
+
+
+    public string SplitString(string option)
+    {
+        string[] splitArray =  option.Split(char.Parse(" "));
+        return splitArray[1];
+    }
 }
+

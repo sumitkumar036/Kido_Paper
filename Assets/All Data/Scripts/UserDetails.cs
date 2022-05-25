@@ -13,5 +13,5 @@ public enum TestType
 public class UserDetails
 {
     public      string       userName;
-    public      TestType     tyestType;
+    public      TestType     levelType;
 }

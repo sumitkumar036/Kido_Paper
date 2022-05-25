@@ -13,13 +13,9 @@ public class GameManager : MonoBehaviour
     [Header("Test Information")]
     public TestInformation testInformation;
 
-
-    [Header("All Questions")]
-    public AllQuestion allQuestion;
-
     void Start()
     {
-        allQuestion.GetAllQuestion();
+        AllQuestion._instance.GetAllQuestion();
     }
 
     void OnEnable()
@@ -34,11 +30,11 @@ public class GameManager : MonoBehaviour
 
     public void DisplayTestData(int number)
     {
-        allQuestion.currectQuestionNumber = number;
-        testInformation.question.text = "Q."+(GenerateNumber.allNumber.Count+1) +" "+allQuestion.dataContainer[number].question;
-        testInformation.optionA.text = "A. "+allQuestion.dataContainer[number].optionA;
-        testInformation.optionB.text = "B. "+allQuestion.dataContainer[number].optionB;
-        testInformation.optionC.text = "C. "+allQuestion.dataContainer[number].optionC;
-        testInformation.optionD.text = "D. "+allQuestion.dataContainer[number].optionD;
+        AllQuestion._instance.currectQuestionNumber = number;
+        testInformation.question.text = "<color=yellow>Q."+(GenerateNumber.allNumber.Count+1)+"</color> "+AllQuestion._instance.dataContainer[number].question;
+        testInformation.optionA.text = "A. "+AllQuestion._instance.dataContainer[number].optionA;
+        testInformation.optionB.text = "B. "+AllQuestion._instance.dataContainer[number].optionB;
+        testInformation.optionC.text = "C. "+AllQuestion._instance.dataContainer[number].optionC;
+        testInformation.optionD.text = "D. "+AllQuestion._instance.dataContainer[number].optionD;
     }
 }

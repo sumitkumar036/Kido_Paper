@@ -12,26 +12,11 @@ public class GenerateNumber : MonoBehaviour
     public static UniqueNumber uniqueNumber;
 
 
-
     void Start()
     {
         GenerateRandomNumber();
     }
-    void OnEnable()
-    {
-        CheckAnswer.answerChecked += NextQuestion;
-    }
-
-    void OnDisable()
-    {
-        CheckAnswer.answerChecked -= NextQuestion;
-    }
-
-    public void NextQuestion()
-    {
-        Invoke("GenerateRandomNumber", 2.5f);
-    }
-
+   
     public void GenerateRandomNumber()
     {
         number = Generate(0,11);

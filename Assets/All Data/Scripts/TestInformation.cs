@@ -9,7 +9,6 @@ public class TestInformation : MonoBehaviour
 {
     [Header("Test Information")]
     public TextMeshProUGUI questionType;
-    public TextMeshProUGUI totalTime;
     public TextMeshProUGUI remainingTime;
     
     [Header("User Information")]
