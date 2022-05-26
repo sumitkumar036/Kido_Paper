@@ -10,8 +10,9 @@ public class CheckAnswer : MonoBehaviour
     public string correctAnswer;//Correct answer
 
     public delegate void AnswerChecked();
-    public static AnswerChecked answerChecked;
+    public static AnswerChecked answerChecked, whenCorrect, whenWrong; //Delegate to be called when answer is checked
 
+  
     void OnEnable()
     {
         AnswerSelected.onButtonClick += Check; //Subscribing delegate in order to check answer
@@ -36,14 +37,18 @@ public class CheckAnswer : MonoBehaviour
         if(SplitString(optionSelected.text).Equals(correctAnswer))
         {
             optionSelected.color = Color.green;
+            if(whenCorrect != null) whenCorrect();
         }
         else
         {
             IfWrongThenShowRight(optionSelected);
+            if(whenWrong != null) whenWrong();
         }
 
         if(answerChecked != null) answerChecked();
     }
+
+   
 
     /// <summary>
     /// This is to show the correct answer if wrong is selected

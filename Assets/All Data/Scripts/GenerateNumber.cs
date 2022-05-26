@@ -8,12 +8,19 @@ public class GenerateNumber : MonoBehaviour
     public int number;
     public static List<int> allNumber = new List<int>();
 
+    public int maxNumber;
+
     public delegate void UniqueNumber(int number);
     public static UniqueNumber uniqueNumber;
 
-
+    void Awake()
+    {
+        allNumber.Clear();
+    }
+    
     void Start()
     {
+        maxNumber = AllQuestion._instance.dataContainer.Length;
         GenerateRandomNumber();
     }
    
@@ -22,22 +29,25 @@ public class GenerateNumber : MonoBehaviour
     /// </summary>
     public void GenerateRandomNumber()
     {
-        number = Generate(0,11);
-        if(allNumber.Count == 0)
+        if(allNumber.Count >= maxNumber)
+        {
+            return;
+        }
+
+        number = Generate(0,maxNumber);
+        if(allNumber.Count <= 0)
         {
             allNumber.Add(number);
             return;
         } 
 
-        if(allNumber.Contains(number))
+        else if(allNumber.Contains(number))
         {
-            number = Generate(0,11);
-            Debug.Log("Same => " +number);
+            GenerateRandomNumber();
         }
         else
         {
             allNumber.Add(number);
-            Debug.Log("Different => " +number);
         }
     }
 

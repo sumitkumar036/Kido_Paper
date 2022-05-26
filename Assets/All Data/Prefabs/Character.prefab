@@ -196,6 +196,7 @@ GameObject:
   - component: {fileID: 3700637608723293783}
   - component: {fileID: 4422126364477931242}
   - component: {fileID: 767157568818451286}
+  - component: {fileID: 7006185068402136717}
   m_Layer: 5
   m_Name: Character
   m_TagString: Untagged
@@ -334,6 +335,24 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animationObject: {fileID: 3700637608723293785}
+  stopAnimation: 0
+--- !u!114 &7006185068402136717
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3700637608723293785}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7bf4622a52696fd4287be94637b36b89, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  clip: {fileID: 0}
+  clickSound: {fileID: 8300000, guid: c4958cf29494b0145a23a02fcbb72bbd, type: 3}
+  volume: 1
+  audioSource: {fileID: 0}
+  onceDone: 0
 --- !u!1 &3700637608798673660
 GameObject:
   m_ObjectHideFlags: 0

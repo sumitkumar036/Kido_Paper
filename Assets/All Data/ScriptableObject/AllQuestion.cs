@@ -22,10 +22,6 @@ public class AllQuestion : ScriptableObject
        {
            _instance = this;
        }
-       else
-       {
-           Destroy(this);
-       }
    }
 
     /// <summary>

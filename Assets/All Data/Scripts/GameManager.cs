@@ -34,6 +34,7 @@ public class GameManager : MonoBehaviour
     /// <param name="number">Generated Number</param>
     public void DisplayTestData(int number)
     {
+        testInformation.totalQuestion.text = "<color=yellow>Question : "+(GenerateNumber.allNumber.Count+1)+"</color> / " + AllQuestion._instance.dataContainer.Length;
         AllQuestion._instance.currectQuestionNumber = number;
         testInformation.question.text = "<color=yellow>Q."+(GenerateNumber.allNumber.Count+1)+"</color> "+AllQuestion._instance.dataContainer[number].question;
         testInformation.optionA.text = "A. "+AllQuestion._instance.dataContainer[number].optionA;

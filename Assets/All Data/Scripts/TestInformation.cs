@@ -10,6 +10,7 @@ public class TestInformation : MonoBehaviour
     [Header("Test Information")]
     public TextMeshProUGUI questionType;
     public TextMeshProUGUI remainingTime;
+    public TextMeshProUGUI totalQuestion;
     
     [Header("User Information")]
     public TextMeshProUGUI name;
