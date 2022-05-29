@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class InstantiateCharacter : MonoBehaviour
 {
     public GameObject characterPrefab;
-    public List<Sprite> allCharacters = new List<Sprite>();
+    public CharacterData[] allCharacters;
     public int characterNumber;
     void Awake()
     {
@@ -18,12 +18,19 @@ public class InstantiateCharacter : MonoBehaviour
     /// </summary>
     public void CharacterIntantiate()
     {
-        for(int i= 0;i < allCharacters.Count; i++)
+        for(int i= 0;i < allCharacters.Length; i++)
         {
             GameObject obj = Instantiate(characterPrefab, characterPrefab.transform.position, Quaternion.identity);
             obj.transform.SetParent(this.transform);
             obj.transform.localScale = new Vector3(1,1,1);
-            obj.GetComponent<CharacterButtonClicked>().characterImage.sprite = allCharacters[i];
+            obj.GetComponent<LoadImageFromURL>().url = allCharacters[i].userIconURL;
+
         }
     }
+}
+
+[System.Serializable]
+public class CharacterData
+{
+    public string userIconURL;
 }

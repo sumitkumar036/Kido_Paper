@@ -10,10 +10,10 @@ public class ShowUserData : MonoBehaviour
 
     void Awake()
     {
-        if(AllQuestion._instance != null)
+        if(GameData._instance != null)
         {
-            nameField.text = "<color=yellow>Name  : </color>"+AllQuestion._instance.userDetails.userName;
-            levelType.text = "<color=yellow>Level : </color>"+AllQuestion._instance.userDetails.levelType.ToString();
+            nameField.text = "<color=yellow>Name  : </color>"+GameData._instance.userDetails.userName;
+            levelType.text = "<color=yellow>Level : </color>"+GameData._instance.userDetails.levelType.ToString();
         }
     }
 }

@@ -21,9 +21,10 @@ public class AssignCharacter : MonoBehaviour
     /// This is to assing the selected character to icon
     /// </summary>
     /// <param name="sprite">Selected character sprite</param>
-    public void CharacterAssignment(Sprite sprite)
+    public void CharacterAssignment(Sprite sprite, string url)
     {
         characterImage.sprite = sprite;
+        Debug.Log("Character Assigned"+sprite.name);
     }
 
 }

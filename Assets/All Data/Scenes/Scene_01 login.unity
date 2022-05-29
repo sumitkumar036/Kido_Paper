@@ -197,30 +197,18 @@ MonoBehaviour:
     m_HighlightedSprite: {fileID: 21300024, guid: 56d84991286850f428b4e7df0cca7380, type: 3}
     m_PressedSprite: {fileID: 21300024, guid: 56d84991286850f428b4e7df0cca7380, type: 3}
     m_SelectedSprite: {fileID: 21300024, guid: 56d84991286850f428b4e7df0cca7380, type: 3}
-    m_DisabledSprite: {fileID: 0}
+    m_DisabledSprite: {fileID: 21300016, guid: 56d84991286850f428b4e7df0cca7380, type: 3}
   m_AnimationTriggers:
     m_NormalTrigger: Normal
     m_HighlightedTrigger: Highlighted
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 82467615}
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 82467618}
-        m_TargetAssemblyTypeName: GoTo, Assembly-CSharp
-        m_MethodName: ChangeScene
-        m_Mode: 5
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: Scene_02
-          m_BoolArgument: 0
-        m_CallState: 2
       - m_Target: {fileID: 360311041}
         m_TargetAssemblyTypeName: AssignMainMenuData, Assembly-CSharp
         m_MethodName: SetData
@@ -233,6 +221,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 82467618}
+        m_TargetAssemblyTypeName: GoTo, Assembly-CSharp
+        m_MethodName: ChangeScene
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Scene_02
+          m_BoolArgument: 0
+        m_CallState: 1
 --- !u!114 &82467615
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -962,6 +962,7 @@ GameObject:
   - component: {fileID: 360311042}
   - component: {fileID: 360311041}
   - component: {fileID: 360311043}
+  - component: {fileID: 360311044}
   m_Layer: 0
   m_Name: Script
   m_TagString: Untagged
@@ -983,7 +984,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dropDown: {fileID: 236202758}
   nameField: {fileID: 380059984}
-  characterImage: {fileID: 1413951840}
+  userIconURL: 
 --- !u!4 &360311042
 Transform:
   m_ObjectHideFlags: 0
@@ -1010,7 +1011,50 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d22742c9d769acb4cbf04c0df69b4317, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  allQuestion: {fileID: 11400000, guid: e2359d1a69fad9b40a2268b57a530b3a, type: 2}
+  gameData: {fileID: 11400000, guid: e2359d1a69fad9b40a2268b57a530b3a, type: 2}
+--- !u!114 &360311044
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 360311040}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 624d9a53210281543b4aceb4bc2f0de1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  field: {fileID: 380059984}
+  onValid:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 82467614}
+        m_TargetAssemblyTypeName: UnityEngine.UI.Selectable, UnityEngine.UI
+        m_MethodName: set_interactable
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+  onInvalid:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 82467614}
+        m_TargetAssemblyTypeName: UnityEngine.UI.Selectable, UnityEngine.UI
+        m_MethodName: set_interactable
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &380059982
 GameObject:
   m_ObjectHideFlags: 0
@@ -1143,6 +1187,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 1
+      - m_Target: {fileID: 360311044}
+        m_TargetAssemblyTypeName: Validation, Assembly-CSharp
+        m_MethodName: Validate
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
   m_OnTouchScreenKeyboardStatusChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -2638,6 +2694,50 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1259185598}
   m_CullTransparentMesh: 1
+--- !u!1 &1400066245
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1400066247}
+  - component: {fileID: 1400066246}
+  m_Layer: 0
+  m_Name: DontDestroyOnLoad
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1400066246
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1400066245}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9e387df4e20a6744aa0043844b36baca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isInternetAvailable: 0
+--- !u!4 &1400066247
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1400066245}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1413951838
 GameObject:
   m_ObjectHideFlags: 0
@@ -2696,7 +2796,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 85c196f60289c42439996700e606c2a5, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 3d985e5a076d8254db30996eaf5d278e, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -4388,12 +4488,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   characterPrefab: {fileID: 3700637608723293785, guid: 9c903faabb8197743aed76fae51a6596, type: 3}
   allCharacters:
-  - {fileID: 21300000, guid: 85c196f60289c42439996700e606c2a5, type: 3}
-  - {fileID: 21300000, guid: d0330d0b7a58c734a8707ae4687dbe0e, type: 3}
-  - {fileID: 21300000, guid: e683fc4dc2d1ebd4999fcf1b28165ca5, type: 3}
-  - {fileID: 21300000, guid: 63893ed336757e64bb13c5b5416e2074, type: 3}
-  - {fileID: 21300000, guid: 048b84f67f18a7644b1335aabb2ee1df, type: 3}
-  - {fileID: 21300000, guid: 597f112472b3a7248bf88190411c5dcd, type: 3}
+  - userIconURL: https://drive.google.com/uc?export=download&id=1RkUsvtM1X9yjvapezQYCTpHQ9XQeH9IU
+  - userIconURL: https://drive.google.com/uc?export=download&id=158AmTAlIu8iQwFvG3nU7NKjKzmprsR_S
+  - userIconURL: https://drive.google.com/uc?export=download&id=1TsXuhSgsUf4fGxj_YZZCoTK7TqJvWoHc
+  - userIconURL: https://drive.google.com/uc?export=download&id=1GsP-s1IOBPLcVGkwx5HJ-bGuZzfN3jJb
+  - userIconURL: https://drive.google.com/uc?export=download&id=1MoA4ERs5eP154ClyaH83oTeY7_V7nA4n
+  - userIconURL: https://drive.google.com/uc?export=download&id=1G4o6seZaxYUJtMXZ6qXt0Djd51Z9-Az-
   characterNumber: 0
 --- !u!1 &1917921502
 GameObject:

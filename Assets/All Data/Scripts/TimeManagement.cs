@@ -8,43 +8,39 @@ public class TimeManagement : MonoBehaviour
 {
     public TextMeshProUGUI remainingTime;
 
-    public int hour, minute, second;
-    public int conversionFactor =60;
+    public float hour, minute, second;
+    public float speed;
     public bool startTimer = false;
+    public const float ZERO = 0;
+    public const float ONE = 1;
+    public const float MAX = 59;
 
-    void Awake()
-    {
 
-    }
-
-    void FixedUpdate()
+    void Update()
     {
         if(startTimer)
         {
-           CalculateTime();
+           CalculateHour();
         }
     }
 
-    public void CalculateTime()
+
+    public void CalculateHour()
     {
-        second -=1;
-        if(hour >= 0 && minute >= 0 && second >= 0)
+        second -= Time.deltaTime * speed;
+
+        if(second <= ZERO)
         {
-           // second -= Time.deltaTime;
-           // remainingTime.text = hour.ToString() +" : "+minute.ToString() +" : "+second.ToString();
+            minute -= ONE;
+            second = MAX;
         }
-        else if(hour >= 0 && minute >= 0 && second <= conversionFactor)
+
+        if(minute <= ZERO)
         {
-           // minute -= Time.deltaTime;
-           // second = conversionFactor;
-           // remainingTime.text = hour.ToString() +" : "+minute.ToString() +" : "+second.ToString();
+            hour -= ONE;
+            minute = MAX;
         }
+
+        remainingTime.text = "<color=yellow>Time : </color>"+hour.ToString("00") + ":" + minute.ToString("00") + ":" + second.ToString("00");
     }
-
-
-    // void DisplayTime(float timeToDisplay)
-    // {
-    //     float minutes = Mathf.FloorToInt(timeToDisplay / 60); 
-    //     float seconds = Mathf.FloorToInt(timeToDisplay % 60);
-    // }
 }

@@ -4,10 +4,13 @@ using UnityEngine;
 
 public class CreateInstance : MonoBehaviour
 {
-    public AllQuestion allQuestion; // All question data
+    public GameData gameData; // All question data
     
     void Awake()
     {
-        allQuestion.CreateInstance(); // Creating instance of all question data ACCESS FROM OTHER CLASSES
+        gameData.CreateInstance(); // Creating instance of all question data ACCESS FROM OTHER CLASSES
+        gameData.userDetails.userName = "";
+        gameData.userDetails.userIconURL = "";
+
     }
 }

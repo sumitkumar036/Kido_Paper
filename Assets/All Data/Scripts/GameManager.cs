@@ -15,7 +15,7 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
-        AllQuestion._instance.GetAllQuestion();
+        GameData._instance.GetAllQuestion();
     }
 
     void OnEnable()
@@ -34,12 +34,12 @@ public class GameManager : MonoBehaviour
     /// <param name="number">Generated Number</param>
     public void DisplayTestData(int number)
     {
-        testInformation.totalQuestion.text = "<color=yellow>Question : "+(GenerateNumber.allNumber.Count+1)+"</color> / " + AllQuestion._instance.dataContainer.Length;
-        AllQuestion._instance.currectQuestionNumber = number;
-        testInformation.question.text = "<color=yellow>Q."+(GenerateNumber.allNumber.Count+1)+"</color> "+AllQuestion._instance.dataContainer[number].question;
-        testInformation.optionA.text = "A. "+AllQuestion._instance.dataContainer[number].optionA;
-        testInformation.optionB.text = "B. "+AllQuestion._instance.dataContainer[number].optionB;
-        testInformation.optionC.text = "C. "+AllQuestion._instance.dataContainer[number].optionC;
-        testInformation.optionD.text = "D. "+AllQuestion._instance.dataContainer[number].optionD;
+        testInformation.totalQuestion.text = "<color=yellow>Question : "+(GenerateNumber.allNumber.Count+1)+"</color> / " + GameData._instance.dataContainer.Length;
+        GameData._instance.currectQuestionNumber = number;
+        testInformation.question.text = "<color=yellow>Q."+(GenerateNumber.allNumber.Count+1)+"</color> "+GameData._instance.dataContainer[number].question;
+        testInformation.optionA.text = "A."+GameData._instance.dataContainer[number].optionA;
+        testInformation.optionB.text = "B."+GameData._instance.dataContainer[number].optionB;
+        testInformation.optionC.text = "C."+GameData._instance.dataContainer[number].optionC;
+        testInformation.optionD.text = "D."+GameData._instance.dataContainer[number].optionD;
     }
 }

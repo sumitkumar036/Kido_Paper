@@ -33,7 +33,7 @@ public class CheckAnswer : MonoBehaviour
     public void Check(TextMeshProUGUI optionSelected)
     {
         WhenButtonClicked();
-        correctAnswer = AllQuestion._instance.dataContainer[AllQuestion._instance.currectQuestionNumber].correctAnswer;
+        correctAnswer = GameData._instance.dataContainer[GameData._instance.currectQuestionNumber].correctAnswer;
         if(SplitString(optionSelected.text).Equals(correctAnswer))
         {
             optionSelected.color = Color.green;
@@ -99,7 +99,7 @@ public class CheckAnswer : MonoBehaviour
     /// <returns></returns>
     public string SplitString(string option)
     {
-        string[] splitArray =  option.Split(char.Parse(" "));
+        string[] splitArray =  option.Split(char.Parse("."));
         return splitArray[1];
     }
 }

@@ -14,4 +14,6 @@ public class UserDetails
 {
     public      string       userName;
     public      TestType     levelType;
+    public      int          userScore;
+    public      string       userIconURL;
 }

@@ -9,6 +9,7 @@ public class GenerateNumber : MonoBehaviour
     public static List<int> allNumber = new List<int>();
 
     public int maxNumber;
+    public List<int> testNumber = new List<int>();
 
     public delegate void UniqueNumber(int number);
     public static UniqueNumber uniqueNumber;
@@ -20,7 +21,7 @@ public class GenerateNumber : MonoBehaviour
     
     void Start()
     {
-        maxNumber = AllQuestion._instance.dataContainer.Length;
+        maxNumber = GameData._instance.dataContainer.Length;
         GenerateRandomNumber();
     }
    
@@ -38,6 +39,7 @@ public class GenerateNumber : MonoBehaviour
         if(allNumber.Count <= 0)
         {
             allNumber.Add(number);
+            testNumber.Add(number);
             return;
         } 
 
@@ -48,7 +50,9 @@ public class GenerateNumber : MonoBehaviour
         else
         {
             allNumber.Add(number);
+             testNumber.Add(number);
         }
+        Debug.Log("Generated Number is : "+number);
     }
 
     /// <summary>
