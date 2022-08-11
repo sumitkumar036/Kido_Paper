@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "21176609802",
+    "project_id": "kido-paper",
+    "storage_bucket": "kido-paper.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:21176609802:android:2e65f6a500744de2c443f3",
+        "android_client_info": {
+          "package_name": "com.GPRNSoftware.KidoPaper"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "21176609802-aq0ruj761o6lufogk5rjeadcrc88vl9q.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDm_HwF4Aas91R0eyhjJB01pcfQkXUQ9sI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "21176609802-aq0ruj761o6lufogk5rjeadcrc88vl9q.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
