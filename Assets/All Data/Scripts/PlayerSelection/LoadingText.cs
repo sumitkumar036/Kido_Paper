@@ -9,7 +9,7 @@ public class LoadingText : MonoBehaviour
 
     void OnEnable()
     {
-        IsNetConnected(InternetConnectivity._instance.isInternetAvailable);
+        IsNetConnected(InternetConnectivity.isInternetAvailable);
     }
 
     public void IsNetConnected(bool isConnected)

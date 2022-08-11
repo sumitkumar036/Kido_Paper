@@ -29,14 +29,14 @@ public class ShowLeaderboard : MonoBehaviour
         Debug.Log(members.Length);
         for (int i = 0; i < members.Length; i++)
         {
-          GameObject obj = Instantiate(leaderBoard);
-          obj.transform.SetParent(parent);
-          obj.transform.localScale = new Vector3(1, 1, 1);
-          boardData.Add(obj);
-          leaderBoardText = obj.GetComponent<LeaderBoardText>();
+            GameObject obj = Instantiate(leaderBoard);
+            obj.transform.SetParent(parent);
+            obj.transform.localScale = new Vector3(1, 1, 1);
+            boardData.Add(obj);
+            leaderBoardText = obj.GetComponent<LeaderBoardText>();
 
-          leaderBoardText.rank.text = "#"+members[i].rank.ToString() + "                "+members[i].member_id;
-          leaderBoardText.score.text = members[i].score.ToString();
+            leaderBoardText.rank.text = "#" + members[i].rank.ToString() + "                " + members[i].member_id;
+            leaderBoardText.score.text = members[i].score.ToString();
         }
     }
 
@@ -52,7 +52,7 @@ public class ShowLeaderboard : MonoBehaviour
 
     public void ShowLeaderBoard()
     {
-        if(InternetConnectivity._instance.isInternetAvailable)
+        if (InternetConnectivity.isInternetAvailable)
         {
             leaderBoardPanel.SetActive(true);
         }
@@ -62,12 +62,12 @@ public class ShowLeaderboard : MonoBehaviour
             Invoke("CheckAgain", 1);
         }
 
-        Debug.Log(InternetConnectivity._instance.isInternetAvailable);
+        Debug.Log(InternetConnectivity.isInternetAvailable);
     }
 
     private void CheckAgain()
     {
-        if(InternetConnectivity._instance.isInternetAvailable)
+        if (InternetConnectivity.isInternetAvailable)
         {
             leaderBoardPanel.SetActive(true);
         }

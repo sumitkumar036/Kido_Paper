@@ -11,19 +11,24 @@ public class Leaderboard : MonoBehaviour
 
     public delegate void OnLeaderboardUpdate(LootLockerLeaderboardMember[] members);
     public static event OnLeaderboardUpdate onLeaderboardUpdate;
+
+    private void Awake()
+    {
+        isInternetAvailable = InternetConnectivity.isInternetAvailable;
+    }
     void Start()
     {
-        LootLockerSDKManager.StartGuestSession((response)=> 
+        LootLockerSDKManager.StartGuestSession((response) =>
         {
-            if(response.success)
+            if (response.success)
             {
                 Debug.Log("Session started");
-                isInternetAvailable = true;
+                //isInternetAvailable = true;
             }
             else
             {
                 Debug.Log("Session failed");
-                isInternetAvailable = false;
+                //isInternetAvailable = false;
             }
         });
     }
@@ -44,10 +49,10 @@ public class Leaderboard : MonoBehaviour
     /// <param name="_currectScore"></param>
     public void SubmitScore(int _currectScore)
     {
-        if(!isInternetAvailable) return;
-        LootLockerSDKManager.SubmitScore(GameData._instance.userDetails.userName, _currectScore, ID, (response) => 
+        if (!InternetConnectivity.isInternetAvailable) return;
+        LootLockerSDKManager.SubmitScore(GameData._instance.userDetails.userName, _currectScore, ID, (response) =>
         {
-            if(response.success)
+            if (response.success)
             {
                 Debug.Log("Score submitted");
             }
@@ -61,18 +66,20 @@ public class Leaderboard : MonoBehaviour
     /// <summary>
     /// This is called to get all the scores
     /// </summary>
+    [System.Obsolete]
     public void FetchLeaderboardData()
     {
-        if(!isInternetAvailable) return;
-        LootLockerSDKManager.GetScoreListMain(ID,100,0, (response) => 
+        if (!InternetConnectivity.isInternetAvailable) return;
+
+        LootLockerSDKManager.GetScoreListMain(ID, 100, 0, (response) =>
         {
-            if(response.success)
+            if (response.success)
             {
                 LootLockerLeaderboardMember[] members = response.items;
-               if(onLeaderboardUpdate != null)
+                if (onLeaderboardUpdate != null)
                 {
                     onLeaderboardUpdate(members);
-               }
+                }
             }
         });
     }

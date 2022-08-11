@@ -24,7 +24,7 @@ public class AssignCharacter : MonoBehaviour
     public void CharacterAssignment(Sprite sprite, string url)
     {
         characterImage.sprite = sprite;
-        Debug.Log("Character Assigned"+sprite.name);
+        // Debug.Log("Character Assigned"+sprite.name);
     }
 
 }

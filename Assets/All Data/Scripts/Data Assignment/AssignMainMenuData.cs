@@ -6,7 +6,7 @@ using TMPro;
 
 public class AssignMainMenuData : MonoBehaviour
 {
-    
+
     public TMP_Dropdown dropDown; // Dropdown for selecting level type
     public TMP_InputField nameField; // Input field for user name
 
@@ -17,7 +17,7 @@ public class AssignMainMenuData : MonoBehaviour
         CharacterButtonClicked.buttonIsClicked += CharacterAssignment; //Subscribing to event when character is being selected
     }
 
-      void OnDisable()
+    void OnDisable()
     {
         CharacterButtonClicked.buttonIsClicked -= CharacterAssignment; //Subscribing to event when character is being selected
     }
@@ -33,8 +33,8 @@ public class AssignMainMenuData : MonoBehaviour
     public void SetData()
     {
         GameData._instance.SetUserData(dropDown, nameField, userIconURL);
-        Debug.Log(dropDown.value);
-        Debug.Log(nameField.text);
-        Debug.Log(userIconURL);
+        //  Debug.Log(dropDown.value);
+        //   Debug.Log(nameField.text);
+        // Debug.Log(userIconURL);
     }
 }

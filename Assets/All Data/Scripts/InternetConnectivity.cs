@@ -5,7 +5,7 @@ using UnityEngine.Networking;
 
 public class InternetConnectivity : MonoBehaviour
 {
-    public bool isInternetAvailable = false;
+    public static bool isInternetAvailable = false;
     public static InternetConnectivity _instance = null;
 
     void Awake()
@@ -33,12 +33,15 @@ public class InternetConnectivity : MonoBehaviour
     {
         UnityWebRequest request = new UnityWebRequest("http://google.com");
         yield return request.SendWebRequest();
-        if (request.error != null) {
-            Debug.Log ("No Internet");
+        if (request.error != null)
+        {
+           // Debug.Log("No Internet");
             isInternetAvailable = false;
-    
-        } else{
-            Debug.Log ("Internet Available");
+
+        }
+        else
+        {
+           // Debug.Log("Internet Available");
             isInternetAvailable = true;
         }
     }
