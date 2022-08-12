@@ -18,41 +18,40 @@ public class GenerateNumber : MonoBehaviour
     {
         allNumber.Clear();
     }
-    
+
     void Start()
     {
         maxNumber = GameData._instance.dataContainer.Length;
         GenerateRandomNumber();
     }
-   
+
     /// <summary>
     /// This is to generate number to get question
     /// </summary>
     public void GenerateRandomNumber()
     {
-        if(allNumber.Count >= maxNumber)
+        if (allNumber.Count >= maxNumber)
         {
             return;
         }
 
-        number = Generate(0,maxNumber);
-        if(allNumber.Count <= 0)
+        number = Generate(0, maxNumber);
+        if (allNumber.Count <= 0)
         {
             allNumber.Add(number);
             testNumber.Add(number);
             return;
-        } 
+        }
 
-        else if(allNumber.Contains(number))
+        else if (allNumber.Contains(number))
         {
             GenerateRandomNumber();
         }
         else
         {
             allNumber.Add(number);
-             testNumber.Add(number);
+            testNumber.Add(number);
         }
-        Debug.Log("Generated Number is : "+number);
     }
 
     /// <summary>
@@ -63,9 +62,9 @@ public class GenerateNumber : MonoBehaviour
     /// <returns></returns>
     public int Generate(int min, int max)
     {
-        if(uniqueNumber != null)
+        if (uniqueNumber != null)
             uniqueNumber(Random.Range(min, max));
-        
+
         return Random.Range(min, max);
     }
 

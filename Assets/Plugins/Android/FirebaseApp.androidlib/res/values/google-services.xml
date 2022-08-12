@@ -1,0 +1,10 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources xmlns:tools="http://schemas.android.com/tools" tools:keep="@string/gcm_defaultSenderId,@string/google_storage_bucket,@string/project_id,@string/google_api_key,@string/google_crash_reporting_api_key,@string/google_app_id,@string/default_web_client_id">
+  <string name="gcm_defaultSenderId" translatable="false">21176609802</string>
+  <string name="google_storage_bucket" translatable="false">kido-paper.appspot.com</string>
+  <string name="project_id" translatable="false">kido-paper</string>
+  <string name="google_api_key" translatable="false">AIzaSyDm_HwF4Aas91R0eyhjJB01pcfQkXUQ9sI</string>
+  <string name="google_crash_reporting_api_key" translatable="false">AIzaSyDm_HwF4Aas91R0eyhjJB01pcfQkXUQ9sI</string>
+  <string name="google_app_id" translatable="false">1:21176609802:android:2e65f6a500744de2c443f3</string>
+  <string name="default_web_client_id" translatable="false">21176609802-aq0ruj761o6lufogk5rjeadcrc88vl9q.apps.googleusercontent.com</string>
+</resources>

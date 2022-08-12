@@ -12,30 +12,30 @@ public class LoadImageFromURL : MonoBehaviour
 
     public bool isThisPlayerSelection;
     public UnityEvent WhenCompleted;
-   
+
 
     void Start()
     {
-        if(!isThisPlayerSelection)
+        if (!isThisPlayerSelection)
         {
-            if(!string.IsNullOrEmpty(GameData._instance.userDetails.userIconURL))
+            if (!string.IsNullOrEmpty(GameData._instance.userDetails.userIconURL))
             {
                 this.url = GameData._instance.userDetails.userIconURL;
             }
         }
-        
+
         StartCoroutine(FetchImage(url));
     }
 
-   
+
     IEnumerator FetchImage(string url)
     {
         UnityWebRequest request = UnityWebRequestTexture.GetTexture(url);
-    yield return request.SendWebRequest();
-    if(request.isNetworkError || request.isHttpError) 
-        Debug.Log(request.error);
-    else
-        downloadedTexture = ((DownloadHandlerTexture) request.downloadHandler).texture;
+        yield return request.SendWebRequest();
+        if (request.isNetworkError || request.isHttpError)
+            Debug.Log(request.error);
+        else
+            downloadedTexture = ((DownloadHandlerTexture)request.downloadHandler).texture;
         image.sprite = TextureToPng(downloadedTexture);
         WhenCompleted.Invoke();
 
