@@ -11,11 +11,28 @@ using UnityEngine.UI;
 public class GameManager : MonoBehaviour
 {
     [Header("Test Information")]
-    public TestInformation testInformation;
+    public AllDataReferences allDataReference;
+
+    public static GameManager _instance = null;
+
+    private void Awake()
+    {
+        if (_instance == null)
+        {
+            _instance = this;
+        }
+    }
+
 
     void Start()
     {
         GameData._instance.GetAllQuestion();
+
+        if (GameData._instance != null)
+        {
+            allDataReference.nameField.text = "<color=yellow>Name  : </color>" + GameData._instance.userDetails.userName;
+            allDataReference.levelType.text = "<color=yellow>Level : </color>" + GameData._instance.userDetails.levelType.ToString();
+        }
     }
 
     void OnEnable()
@@ -28,18 +45,21 @@ public class GameManager : MonoBehaviour
         GenerateNumber.uniqueNumber -= DisplayTestData; //Unsubscribing to the event of GenerateNumber class
     }
 
+    /// ========================================================================================================================
+    ///                             DISPLAY ALL DATA
+    /// ========================================================================================================================
     /// <summary>
     /// This is to Display Test Data form json to text field
     /// </summary>
     /// <param name="number">Generated Number</param>
     public void DisplayTestData(int number)
     {
-        testInformation.totalQuestion.text = "<color=yellow>Question : " + (GenerateNumber.allNumber.Count + 1) + "</color> / " + GameData._instance.dataContainer.Length;
+        allDataReference.totalQuestion.text = "<color=yellow>Question : " + (GenerateNumber.allNumber.Count) + "</color> / " + GameData._instance.dataContainer.Length;
         GameData._instance.currectQuestionNumber = number;
-        testInformation.question.text = "<color=yellow>Q." + (GenerateNumber.allNumber.Count + 1) + "</color> " + GameData._instance.dataContainer[number].question;
-        testInformation.optionA.text = "A." + GameData._instance.dataContainer[number].optionA;
-        testInformation.optionB.text = "B." + GameData._instance.dataContainer[number].optionB;
-        testInformation.optionC.text = "C." + GameData._instance.dataContainer[number].optionC;
-        testInformation.optionD.text = "D." + GameData._instance.dataContainer[number].optionD;
+        allDataReference.question.text = "<color=yellow>Q." + (GenerateNumber.allNumber.Count + 1) + "</color> " + GameData._instance.dataContainer[number].question;
+        allDataReference.optionA.text = "A." + GameData._instance.dataContainer[number].optionA;
+        allDataReference.optionB.text = "B." + GameData._instance.dataContainer[number].optionB;
+        allDataReference.optionC.text = "C." + GameData._instance.dataContainer[number].optionC;
+        allDataReference.optionD.text = "D." + GameData._instance.dataContainer[number].optionD;
     }
 }

@@ -6,13 +6,12 @@ using TMPro;
 
 public class CheckAnswer : MonoBehaviour
 {
-    public Button[] allButtons; //Total available button or option
     public string correctAnswer;//Correct answer
 
     public delegate void AnswerChecked();
     public static AnswerChecked answerChecked, whenCorrect, whenWrong; //Delegate to be called when answer is checked
 
-  
+
     void OnEnable()
     {
         AnswerSelected.onButtonClick += Check; //Subscribing delegate in order to check answer
@@ -34,21 +33,21 @@ public class CheckAnswer : MonoBehaviour
     {
         WhenButtonClicked();
         correctAnswer = GameData._instance.dataContainer[GameData._instance.currectQuestionNumber].correctAnswer;
-        if(SplitString(optionSelected.text).Equals(correctAnswer))
+        if (SplitString(optionSelected.text).Equals(correctAnswer))
         {
             optionSelected.color = Color.green;
-            if(whenCorrect != null) whenCorrect();
+            if (whenCorrect != null) whenCorrect();
         }
         else
         {
             IfWrongThenShowRight(optionSelected);
-            if(whenWrong != null) whenWrong();
+            if (whenWrong != null) whenWrong();
         }
 
-        if(answerChecked != null) answerChecked();
+        if (answerChecked != null) answerChecked();
     }
 
-   
+
 
     /// <summary>
     /// This is to show the correct answer if wrong is selected
@@ -56,26 +55,26 @@ public class CheckAnswer : MonoBehaviour
     /// <param name="optionSelected">answer selected</param>    
     public void IfWrongThenShowRight(TextMeshProUGUI optionSelected)
     {
-        for(int i = 0; i< allButtons.Length; i++)
+        for (int i = 0; i < GameManager._instance.allDataReference.allQuestionButtons.Length; i++)
         {
-            if(SplitString(allButtons[i].GetComponentInChildren<TextMeshProUGUI>().text).Equals(correctAnswer))
+            if (SplitString(GameManager._instance.allDataReference.allQuestionButtons[i].GetComponentInChildren<TextMeshProUGUI>().text).Equals(correctAnswer))
             {
-              allButtons[i].GetComponentInChildren<TextMeshProUGUI>().color = Color.green;
+                GameManager._instance.allDataReference.allQuestionButtons[i].GetComponentInChildren<TextMeshProUGUI>().color = Color.green;
             }
         }
         optionSelected.color = Color.red;
     }
-    
+
 
     /// <summary>
     /// This is called when option is selected
     /// </summary>
     public void WhenButtonClicked()
     {
-        for(int i = 0; i< allButtons.Length; i++)
+        for (int i = 0; i < GameManager._instance.allDataReference.allQuestionButtons.Length; i++)
         {
-            allButtons[i].interactable = false;
-            allButtons[i].GetComponentInChildren<TextMeshProUGUI>().color = Color.white;
+            GameManager._instance.allDataReference.allQuestionButtons[i].interactable = false;
+            GameManager._instance.allDataReference.allQuestionButtons[i].GetComponentInChildren<TextMeshProUGUI>().color = Color.white;
         }
     }
 
@@ -85,10 +84,10 @@ public class CheckAnswer : MonoBehaviour
     /// <param name="useless"></param>
     public void ResetColor(int useless)
     {
-        for(int i = 0; i< allButtons.Length; i++)
+        for (int i = 0; i < GameManager._instance.allDataReference.allQuestionButtons.Length; i++)
         {
-            allButtons[i].interactable = true;
-            allButtons[i].GetComponentInChildren<TextMeshProUGUI>().color = Color.white;
+            GameManager._instance.allDataReference.allQuestionButtons[i].interactable = true;
+            GameManager._instance.allDataReference.allQuestionButtons[i].GetComponentInChildren<TextMeshProUGUI>().color = Color.white;
         }
     }
 
@@ -99,7 +98,7 @@ public class CheckAnswer : MonoBehaviour
     /// <returns></returns>
     public string SplitString(string option)
     {
-        string[] splitArray =  option.Split(char.Parse("."));
+        string[] splitArray = option.Split(char.Parse("."));
         return splitArray[1];
     }
 }

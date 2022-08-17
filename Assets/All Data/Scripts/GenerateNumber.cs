@@ -12,7 +12,9 @@ public class GenerateNumber : MonoBehaviour
     public List<int> testNumber = new List<int>();
 
     public delegate void UniqueNumber(int number);
-    public static UniqueNumber uniqueNumber;
+    public static UniqueNumber uniqueNumber, onFinish;
+
+    public TextMeshProUGUI _text;
 
     void Awake()
     {
@@ -25,6 +27,10 @@ public class GenerateNumber : MonoBehaviour
         GenerateRandomNumber();
     }
 
+    /// ========================================================================================================================
+    ///                             GENERATE RANDOM NUMBER
+    /// ========================================================================================================================
+    /// 
     /// <summary>
     /// This is to generate number to get question
     /// </summary>
@@ -32,28 +38,28 @@ public class GenerateNumber : MonoBehaviour
     {
         if (allNumber.Count >= maxNumber)
         {
+            if (onFinish != null)
+            {
+                onFinish(number);
+            }
             return;
         }
 
         number = Generate(0, maxNumber);
-        if (allNumber.Count <= 0)
+        while (allNumber.Contains(number))
         {
-            allNumber.Add(number);
-            testNumber.Add(number);
-            return;
+            number = Generate(0, maxNumber);
         }
 
-        else if (allNumber.Contains(number))
-        {
-            GenerateRandomNumber();
-        }
-        else
-        {
-            allNumber.Add(number);
-            testNumber.Add(number);
-        }
+
+        allNumber.Add(number);
+        uniqueNumber(number);
+        _text.text += number + " ";
     }
 
+    /// ========================================================================================================================
+    ///                             GENERATE NUMBER FUNCTION
+    /// ========================================================================================================================
     /// <summary>
     /// This is used to generate number at particular range
     /// </summary>

@@ -24,6 +24,14 @@ public class ShowLeaderboard : MonoBehaviour
         Leaderboard.onLeaderboardUpdate -= GenerateLeaderboard;
     }
 
+    /// ========================================================================================================================
+    ///                             GENERATE LEADERBOARD
+    /// ========================================================================================================================
+    /// 
+    /// <summary>
+    /// This is to generate leaderboard
+    /// </summary>
+    /// <param name="members">all member list played</param>
     public void GenerateLeaderboard(LootLockerLeaderboardMember[] members)
     {
         Debug.Log(members.Length);
@@ -40,6 +48,13 @@ public class ShowLeaderboard : MonoBehaviour
         }
     }
 
+    /// ========================================================================================================================
+    ///                             DESTROY PREVIOUS RECORD
+    /// ========================================================================================================================
+    /// 
+    /// <summary>
+    /// This is to destroy previous record
+    /// </summary>
     public void DestroyPrevRecord()
     {
         for (int i = 0; i < boardData.Count; i++)
@@ -49,7 +64,13 @@ public class ShowLeaderboard : MonoBehaviour
         boardData.Clear();
     }
 
-
+    /// ========================================================================================================================
+    ///                             SHOW LEADERBOARD
+    /// ========================================================================================================================
+    /// 
+    /// <summary>
+    /// This is to show all leaderboard data
+    /// </summary>
     public void ShowLeaderBoard()
     {
         if (InternetConnectivity.isInternetAvailable)
@@ -61,10 +82,15 @@ public class ShowLeaderboard : MonoBehaviour
             InternetConnectivity._instance.CheckConnectivity();
             Invoke("CheckAgain", 1);
         }
-
-        Debug.Log(InternetConnectivity.isInternetAvailable);
     }
 
+    /// ========================================================================================================================
+    ///                             CHECK AGAIN
+    /// ========================================================================================================================
+    /// 
+    /// <summary>
+    /// This is to check internet connection again
+    /// </summary>
     private void CheckAgain()
     {
         if (InternetConnectivity.isInternetAvailable)

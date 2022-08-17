@@ -32,6 +32,9 @@ public class GameData : ScriptableObject
         }
     }
 
+    /// ========================================================================================================================
+    ///                             GET ALL QUESTION FROM LOCAL JSON FILE / FROM GOOGLE DRIVE
+    /// ========================================================================================================================
     /// <summary>
     /// This is to GetAllQuestion from the Json file created.
     /// </summary>
@@ -46,14 +49,17 @@ public class GameData : ScriptableObject
         {
             dataContainer = JsonHelper.FromJson<DataContainer>(dataPath);
         }
-
-
     }
+    /// ========================================================================================================================
+    ///                             SET USER DATA
+    /// ======================================================================================================================== 
     /// <summary>
     /// This is to Set User Information
     /// </summary>
     /// <param name="dropDown">Level type</param>
     /// <param name="nameField">user name</param>
+    /// /// <param name="_userIconURL">user iconURL</param>
+    /// /// <param name="questionField">user question field</param>
     public void SetUserData(TMP_Dropdown dropDown, TMP_InputField nameField, string _userIconURL, TMP_Dropdown questionField)
     {
         userDetails = new UserDetails();
@@ -63,7 +69,12 @@ public class GameData : ScriptableObject
         questionFrom = (QuestionFrom)questionField.value;
     }
 
-
+    /// ========================================================================================================================
+    ///                             SET USER DATA
+    /// ========================================================================================================================
+    /// <summary>
+    /// This is to reset user data
+    /// </summary>
     public void ResetData()
     {
         userDetails.userIconURL = null;
