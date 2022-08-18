@@ -9,11 +9,9 @@ public class GenerateNumber : MonoBehaviour
     public static List<int> allNumber = new List<int>();
 
     public int maxNumber;
-    public List<int> testNumber = new List<int>();
 
     public delegate void UniqueNumber(int number);
-    public static UniqueNumber uniqueNumber, onFinish;
-
+    public static UniqueNumber uniqueNumber;
     public TextMeshProUGUI _text;
 
     void Awake()
@@ -38,10 +36,6 @@ public class GenerateNumber : MonoBehaviour
     {
         if (allNumber.Count >= maxNumber)
         {
-            if (onFinish != null)
-            {
-                onFinish(number);
-            }
             return;
         }
 

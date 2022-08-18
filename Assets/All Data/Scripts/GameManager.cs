@@ -14,6 +14,8 @@ public class GameManager : MonoBehaviour
     public AllDataReferences allDataReference;
 
     public static GameManager _instance = null;
+    public delegate void WhenCompleted();
+    public static WhenCompleted onFinish;
 
     private void Awake()
     {
@@ -61,5 +63,15 @@ public class GameManager : MonoBehaviour
         allDataReference.optionB.text = "B." + GameData._instance.dataContainer[number].optionB;
         allDataReference.optionC.text = "C." + GameData._instance.dataContainer[number].optionC;
         allDataReference.optionD.text = "D." + GameData._instance.dataContainer[number].optionD;
+
     }
+
+    public void Finished()
+    {
+        if (onFinish != null)
+        {
+            if (GenerateNumber.allNumber.Count == GameData._instance.dataContainer.Length) onFinish();
+        }
+    }
+
 }
