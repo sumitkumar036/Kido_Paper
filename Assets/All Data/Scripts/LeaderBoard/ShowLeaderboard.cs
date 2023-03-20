@@ -34,7 +34,6 @@ public class ShowLeaderboard : MonoBehaviour
     /// <param name="members">all member list played</param>
     public void GenerateLeaderboard(LootLockerLeaderboardMember[] members)
     {
-        Debug.Log(members.Length);
         for (int i = 0; i < members.Length; i++)
         {
             GameObject obj = Instantiate(leaderBoard);
